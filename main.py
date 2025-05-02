@@ -21,6 +21,8 @@ st.markdown("""
             Diese Webseite simuliert ein chaotisches Doppelpendel. Sowohl die Massen der beiden Punkte, als auch die Längen der Stäbe sind gleich.
 
             Es können unterschiedliche Parameter für die Simulation eingestellt werden. Die Lösung erfolgt durch eine numerische Methode.
+            
+            Der Programmcode kann auf [GitHub](https://github.com/lennarddev/doppelpendel) eingesehen werden.
             """)
 
 # Eingabefelder
