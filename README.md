@@ -5,24 +5,25 @@ Dies ist eine Streamlit-App zur Simulation eines Doppelpendels, die Sie auf Ihre
 Alternativ lässt sie sich auch auf einer externen Webseite öffnen, deren Leistung jedoch begrenzt ist.
 
 
-## 🐍 Voraussetzungen
+## Voraussetzungen
 
+- Die Datei wird über den Button '<> Code' und 'ZIP Herunterladen' heruntergeladen und entpackt.
 - **Python muss installiert sein.** Eine Anleitung finden Sie weiter unten.
 - Die App verwendet ein virtuelles Environment (`.venv`), das beim ersten Start automatisch erstellt wird.
 - Eine Internetverbindung ist notwendig, um benötigte Python-Pakete beim ersten Mal zu installieren.
 
 
-## 🧰 Python installieren
+## Python installieren
 
-### 🔹 Windows & MacOS
+### Windows & MacOS
 
 1. Laden Sie den Python-Installer von der offiziellen Webseite herunter:  
    👉 https://www.python.org/downloads/
 2. Falls die nachfolgenden Schritte nicht funktionieren, lässt sich Python auf Windows auch im Microsoft-Store herunterladen.
 
-## ▶️ App starten
+## App starten
 
-### 💻 macOS
+### macOS
 
 1.	Navigieren Sie im Finder in den Projektordner.
 2.	Doppelklicken Sie auf die Datei:
@@ -46,7 +47,7 @@ cd /Pfad/zum/heruntergeladenen/Ordner
 ./launch.sh
 ```
 
-### 🪟 Windows
+### Windows
 1.  Navigieren Sie im Datei-Explorer in den Projektordner.
 2.	Doppelklicken Sie auf die Datei:
 
@@ -67,7 +68,7 @@ cd /Pfad/zum/heruntergeladenen/Ordner
 launch.bat
 ```
 
-## 🌐 Zugriff auf die App
+## Zugriff auf die App
 
 Die App öffnet sich automatisch im Browser unter:
 
