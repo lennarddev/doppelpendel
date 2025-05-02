@@ -106,7 +106,7 @@ if st.button("🚀 Simulation starten"):
         if method == "Euler":
             simulate = euler.simulate
             method = "Euler"
-            calculcate()
+            calculate()
         elif method == "Runge-Kutta":
             simulate = rk4.simulate
             method = "Runge-Kutta"
