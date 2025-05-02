@@ -18,6 +18,7 @@ Alternativ lässt sie sich auch auf einer externen Webseite öffnen, deren Leist
 
 1. Laden Sie den Python-Installer von der offiziellen Webseite herunter:  
    👉 https://www.python.org/downloads/
+2. Falls die nachfolgenden Schritte nicht funktionieren, lässt sich Python auf Windows auch im Microsoft-Store herunterladen.
 
 ## ▶️ App starten
 
@@ -48,6 +49,19 @@ cd /Pfad/zum/heruntergeladenen/Ordner
 ### 🪟 Windows
 1.  Navigieren Sie im Datei-Explorer in den Projektordner.
 2.	Doppelklicken Sie auf die Datei:
+
+```
+launch.bat
+```
+Fall das nicht funktioniert, probieren Sie folgende Lösung:
+
+1. Öffnen Sie die Eingabeaufforderung.
+2. Wechseln Sie in das App-Verzeichnis.
+
+```
+cd /Pfad/zum/heruntergeladenen/Ordner
+```
+3. Führen Sie das Startskript aus:
 
 ```
 launch.bat
