@@ -2,7 +2,9 @@
 
 Dies ist eine Streamlit-App zur Simulation eines Doppelpendels, die Sie auf Ihrem eigenen Computer ausführen. Sie wird im Browser geöffnet.
 
-Alternativ lässt sie sich auch auf einer externen Webseite öffnen, deren Leistung jedoch begrenzt ist.
+Alternativ lässt sie sich auch auf einer externen Webseite öffnen, deren Leistung jedoch begrenzt ist:
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://<doppelpendel>.streamlit.app)
+
 
 
 ## Voraussetzungen
