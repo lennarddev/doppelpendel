@@ -4,8 +4,6 @@ import matplotlib.pyplot as plt
 from matplotlib.animation import PillowWriter
 import streamlit.components.v1 as components
 import io
-from PIL import Image
-import tempfile
 
 import Functions.euler as euler
 import Functions.rk4 as rk4
