@@ -49,6 +49,54 @@ difference = (st.number_input("Winkelunterschied Δα & Δβ (°)", value=0.001,
 
 steps = int(t_max / h)
 
+# Berechnung
+def calculate():
+    info_container = st.empty()
+    info_container.info("Simulation wird erstellt... Dies kann einige Sekunden bis Minuten dauern, je nach gewähltem Zeitintervall und Anzahl der Schritte.")
+
+    if outputformat == "Animation":
+
+        fig = animation.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping)
+
+        st.html(fig.to_html5_video(embed_limit=200))
+
+    elif outputformat == "Plot":
+        fig = singleplot.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping)
+        st.pyplot(fig)
+
+    elif outputformat == "Plot der Winkelunterschiede":
+        fig = diffplot.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping, difference)
+        st.pyplot(fig)
+
+    elif outputformat == "Verlauf der Winkelunterschiede":
+        fig = diffvalues.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping, difference)
+        st.pyplot(fig)
+
+    elif outputformat == "Vergleich von Euler und Runge-Kutta":
+        fig = diffmethod.show(alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping)
+        st.pyplot(fig)
+
+    else:
+        st.error("Ungültiges Ausgabeformat.")
+        st.stop()
+        
+    info_container.empty()
+
+    try:
+        if not outputformat == "Animation":
+            buffer = io.BytesIO()
+            fig.savefig(buffer, format='png', dpi=300, bbox_inches='tight', pad_inches=0.25)
+            buffer.seek(0)
+            
+            st.download_button(
+                label="📂 Herunterladen",
+                data=buffer,
+                file_name="doppelpendel.png",
+                mime="image/png"
+            )
+    except Exception as e:
+        st.error(f"Fehler beim Herunterladen der Datei.: {e}")
+
 # Start der Simulation
 if st.button("🚀 Simulation starten"):
     try:
@@ -56,58 +104,13 @@ if st.button("🚀 Simulation starten"):
         if method == "Euler":
             simulate = euler.simulate
             method = "Euler"
+            calculcate()
         elif method == "Runge-Kutta":
             simulate = rk4.simulate
             method = "Runge-Kutta"
+            calculate()
         else:
             st.error("Ungültiges Berechnungsverfahren.")
-            st.stop()
-            
-        info_container = st.empty()
-        info_container.info("Simulation wird erstellt... Dies kann einige Sekunden bis Minuten dauern, je nach gewähltem Zeitintervall und Anzahl der Schritte.")
-
-        if outputformat == "Animation":
-
-            fig = animation.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping)
-
-            st.html(fig.to_html5_video(embed_limit=200))
-
-        elif outputformat == "Plot":
-            fig = singleplot.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping)
-            st.pyplot(fig)
-
-        elif outputformat == "Plot der Winkelunterschiede":
-            fig = diffplot.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping, difference)
-            st.pyplot(fig)
-
-        elif outputformat == "Verlauf der Winkelunterschiede":
-            fig = diffvalues.show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping, difference)
-            st.pyplot(fig)
-
-        elif outputformat == "Vergleich von Euler und Runge-Kutta":
-            fig = diffmethod.show(alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping)
-            st.pyplot(fig)
-
-        else:
-            st.error("Ungültiges Ausgabeformat.")
-            st.stop()
-            
-        info_container.empty()
-
-        try:
-            if not outputformat == "Animation":
-                buffer = io.BytesIO()
-                fig.savefig(buffer, format='png', dpi=300, bbox_inches='tight', pad_inches=0.25)
-                buffer.seek(0)
-                
-                st.download_button(
-                    label="📂 Herunterladen",
-                    data=buffer,
-                    file_name="doppelpendel.png",
-                    mime="image/png"
-                )
-        except Exception as e:
-            st.error(f"Fehler beim Herunterladen der Datei.: {e}")
             
     except Exception as e:
         st.error(f"Fehler bei der Berechnung.: {e}")
