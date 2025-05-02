@@ -112,4 +112,4 @@ if st.button("🚀 Simulation starten"):
             st.error(f"Fehler beim Herunterladen der Datei.: {e}")
             
     except Exception as e:
-        st.error("Fehler bei der Berechnung.")
+        st.error(f"Fehler bei der Berechnung.: {e}")
