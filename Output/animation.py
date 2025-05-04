@@ -2,11 +2,17 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
+import matplotlib
 import io
 import tempfile
 
 def show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping):
     """Erstellt die Animation des Doppelpendels."""
+    
+    font = {'family':'normal', 'weight':'light', 'size':20}
+
+    matplotlib.rc('font', **font)
+
     
     time = np.linspace(0, t_max, steps)
     
@@ -19,9 +25,12 @@ def show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h
     y2 = y1 - l * np.cos(beta)
 
     # Animation
+    x_max = 2.5 * l
+    y_max = 2.5 * l
+    
     fig, ax = plt.subplots(figsize=(10, 8))
-    ax.set_xlim(-2.2, 2.2)
-    ax.set_ylim(-2.2, 2.2)
+    ax.set_xlim(-x_max, x_max)
+    ax.set_ylim(-y_max, y_max)
     ax.set_aspect('equal', adjustable='box')
     ax.grid()
     

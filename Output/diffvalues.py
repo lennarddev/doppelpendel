@@ -1,27 +1,28 @@
 """Erstellt den Vergleich von zwei Doppelpendeln mit unterschiedlichen Anfangswinkeln."""
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 
 def show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping, difference):
     """Erstellt den Vergleich von zwei Doppelpendeln mit unterschiedlichen Anfangswinkeln."""
     
-    time = np.linspace(0, t_max, steps)
+    font = {'family':'normal', 'weight':'light', 'size':20}
+
+    matplotlib.rc('font', **font)
     
-    # Anfangsbedingungen beider Pendel
-    start_alpha = np.pi / 2
-    start_beta = np.pi / 2
+    time = np.linspace(0, t_max, steps)
 
     # Anfangsbedingungen A
-    alpha0_A = start_alpha + difference   # Anfangswinkel alpha (rad)
-    beta0_A = start_beta + difference      # Anfangswinkel beta (rad)
+    alpha0_A = alpha0 + difference   # Anfangswinkel alpha (rad)
+    beta0_A = beta0 + difference      # Anfangswinkel beta (rad)
     alpha_dot0_A = 0.0                          # Anfangswinkelgeschwindigkeit alpha (rad/s)
     beta_dot0_A = 0.0                           # Anfangswinkelgeschwindigkeit beta (rad/s)
 
     alpha_A, beta_A, alpha_dot_A, beta_dot_A = simulate(alpha0_A, beta0_A, alpha_dot0_A, beta_dot0_A, steps, h, g, l, damping)
 
     # Anfangsbedingungen B
-    alpha0_B = start_alpha                      # Anfangswinkel alpha (rad)
-    beta0_B = start_beta                        # Anfangswinkel beta (rad)
+    alpha0_B = alpha0                      # Anfangswinkel alpha (rad)
+    beta0_B = beta0                        # Anfangswinkel beta (rad)
     alpha_dot0_B = 0.0                          # Anfangswinkelgeschwindigkeit alpha (rad/s)
     beta_dot0_B = 0.0                           # Anfangswinkelgeschwindigkeit beta (rad/s)
 

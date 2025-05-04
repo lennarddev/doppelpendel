@@ -1,11 +1,16 @@
 """Erstellt den Vergleich der Euler und RK4 Methode für das Doppelpendel."""
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
 
 from Functions import euler, rk4
 
 def show(alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping):
     """Erstellt den Vergleich der Euler und RK4 Methode für das Doppelpendel."""
+    
+    font = {'family':'normal', 'weight':'light', 'size':20}
+
+    matplotlib.rc('font', **font)
     
     time = np.linspace(0, t_max, steps)
     
