@@ -30,6 +30,8 @@ def show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h
     # Plot
     fig, ax = plt.subplots(figsize=(10, 7))
     
+    ax.set_aspect('equal', adjustable='box')
+    
     ax.set_title("Vergleich der Winkel von zwei Doppelpendeln")
 
     ax.set_xlabel(
@@ -45,8 +47,6 @@ def show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h
 
     ax.plot(time, (alpha_A - alpha_B)/np.pi, color="red", label="Δα")
     ax.plot(time, (beta_A - beta_B)/np.pi, color="blue", label="Δβ")
-    
-    ax.set_aspect('equal', adjustable='box')
 
     ax.legend()
     ax.grid()

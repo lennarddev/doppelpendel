@@ -16,6 +16,8 @@ def show(alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping):
     alpha_B, beta_B, alpha_dot_B, beta_dot_B = rk4.simulate(alpha0, beta0, alpha_dot0, beta_dot0, steps, h, g, l, damping)
 
     fig, ax = plt.subplots(figsize=(10, 7))
+    
+    ax.set_aspect('equal', adjustable='box')
 
     ax.set_title("Vergleich von Euler und RK4 für das Doppelpendel")
     ax.set_xlabel(
@@ -30,8 +32,6 @@ def show(alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping):
     ax.plot(time, beta_A/np.pi, color="red", label="βA (Euler)")
     ax.plot(time, beta_B/np.pi, color="blue", label="βB (RK4)")
     ax.plot(time, (beta_A - beta_B)/np.pi, color="orange", label="βA - βB")
-
-    ax.set_aspect('equal', adjustable='box')
 
     ax.legend()
     ax.grid()
