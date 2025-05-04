@@ -6,7 +6,7 @@ import matplotlib
 def show(simulate, method, alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping, difference):
     """Erstellt den Vergleich von zwei Doppelpendeln mit unterschiedlichen Anfangswinkeln."""
     
-    font = {'family':'normal', 'weight':'light', 'size':20}
+    font = {'family':'normal', 'weight':'light', 'size':10}
 
     matplotlib.rc('font', **font)
     
