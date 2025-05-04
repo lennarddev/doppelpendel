@@ -29,6 +29,7 @@ def show(alpha0, beta0, alpha_dot0, beta_dot0, steps, t_max, h, g, l, damping):
 
     ax.plot(time, beta_A/np.pi, color="red", label="βA (Euler)")
     ax.plot(time, beta_B/np.pi, color="blue", label="βB (RK4)")
+    ax.plot(time, beta_A - beta_B, color="orange", label="βA - βB")
 
     ax.set_aspect('equal', adjustable='box')
 
