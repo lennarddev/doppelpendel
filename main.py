@@ -1,8 +1,5 @@
 import streamlit as st
 import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import PillowWriter
-import streamlit.components.v1 as components
 import io
 
 import Functions.euler as euler
