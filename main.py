@@ -18,12 +18,23 @@ import Output.diffmethod as diffmethod
 st.title("Simulation eines Doppelpendels")
 
 st.markdown("""
-            Diese Webseite simuliert ein chaotisches Doppelpendel. Sowohl die Massen der beiden Punkte, als auch die Längen der Stäbe sind gleich.
+            *Diese Webseite wurde im Rahmen einer Facharbeit von Lennard Kunze erstellt.*
+            
+            Es wird ein chaotisches Doppelpendel simuliert. Sowohl die Massen der beiden Punkte, als auch die Längen der Stäbe sind gleich.
 
             Es können unterschiedliche Parameter für die Simulation eingestellt werden. Die Lösung erfolgt durch eine numerische Methode.
             
             Der Programmcode kann auf [GitHub](https://github.com/lennarddev/doppelpendel) eingesehen werden.
             """)
+
+with st.expander("📖 Erklärung der Ausgabeformate"):
+    st.markdown("""
+                - **Animation**: Zeigt eine animierte Darstellung des Doppelpendels als Video.
+                - **Plot**: Visualisiert die Positionen der beiden Massen des Doppelpendels in einem Koordiantensystem über die gesamte Zeit.
+                - **Plot der Winkelunterschiede**: Stellt die Auswirkung der Änderung der Anfangsbedingungen zwischen den beiden Pendeln grafisch dar.
+                - **Verlauf der Winkelunterschiede**: Zeigt, wie sich die Winkelunterschiede zwischen den beiden Pendeln (aufgrund einer Änderung der Anfangsbedingungen) über die Zeit verändern.
+                - **Vergleich von Euler und Runge-Kutta**: Vergleicht die Ergebnisse der beiden numerischen Verfahren (Euler und Runge-Kutta).
+                """)
 
 # Eingabefelder
 method = st.selectbox("Numerisches Verfahren", ["Euler", "Runge-Kutta"], index=1)
@@ -45,8 +56,10 @@ alpha_dot0 = (st.number_input("Anfangsgeschwindigkeit `α̇` (°/s)", value=0.0)
 beta_dot0 = (st.number_input("Anfangsgeschwindigkeit `β̇` (°/s)", value=0.0))/180 * np.pi
 
 st.subheader("Vergleichsparameter")
-st.markdown("Nur für das Anzeigen der Ausgabeformate: 'Plot der Winkelunterschiede' und"
-            " 'Verlauf der Winkelunterschiede' relevant. Der Winkelunterschied wird auf die Anfangswerte des ersten Pendels addiert.")
+
+with st.expander("📖 Erklärung der Vergleichsparameter"):
+    st.markdown("Nur für das Anzeigen der Ausgabeformate: 'Plot der Winkelunterschiede' und 'Verlauf der Winkelunterschiede' relevant. Der Winkelunterschied wird auf die Anfangswerte des ersten Pendels addiert.")
+
 difference = (st.number_input("Winkelunterschied Δα & Δβ (°)", value=0.001, step=0.001, format="%.6f"))/180 * np.pi
 
 steps = int(t_max / h)
