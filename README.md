@@ -12,7 +12,6 @@ Alternativ lässt sie sich auch auf einer externen Webseite öffnen, deren Leist
 
 - Die Datei wird über den Button '<> Code' und 'ZIP Herunterladen' heruntergeladen und entpackt.
 - **Python muss installiert sein.** Eine Anleitung finden Sie weiter unten.
-- Die App verwendet ein virtuelles Environment (`.venv`), das beim ersten Start automatisch erstellt wird.
 - Eine Internetverbindung ist notwendig, um benötigte Python-Pakete beim ersten Mal zu installieren.
 
 
