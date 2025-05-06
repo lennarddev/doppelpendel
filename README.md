@@ -1,5 +1,7 @@
 # Doppelpendel Simulation
 
+*Diese Webseite wurde im Rahmen einer Facharbeit von Lennard Kunze erstellt.*
+
 Dies ist eine Streamlit-App zur Simulation eines Doppelpendels, die Sie auf Ihrem eigenen Computer ausführen. Sie wird im Browser geöffnet.
 
 Alternativ lässt sie sich auch auf einer externen Webseite öffnen, deren Leistung jedoch begrenzt ist:
@@ -79,5 +81,3 @@ http://localhost:8501
 Wenn sie sich nicht automatisch öffnet, können Sie diesen Link einfach manuell im Browser eingeben.
 
 ### 🎉 Viel Spaß!
-
-*Dieses Projekt wurde im Rahmen einer Facharbeit erstellt.*
